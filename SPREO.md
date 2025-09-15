@@ -84,7 +84,7 @@ class: center, middle
 
 ---
 
-# testing the association between cwt EEG and mean ERN
+<!-- # testing the association between cwt EEG and mean ERN
 
 #### Analysis details
 
@@ -94,10 +94,13 @@ Correlations computed between mean ERN and each time-frequency "pixel" across pa
 
 --
 
-Multiple comparison addressed through cluster correction.
+Family-wise error rate (multiple-testing inflation of false discoveries) not contained for now because this is very exploratory. At a later point, cluster correction can be applied.
 
 --
 
-Some participants don't have data for a certain session-block combination. They are excluded from the analysis on that session-block combination only.
+Some participants don't have data for a certain session-block combination. They are excluded from the analysis on that session-block combination only. -->
+
+---
+
 
 
