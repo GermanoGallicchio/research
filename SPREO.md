@@ -84,23 +84,32 @@ class: center, middle
 
 ---
 
-<!-- # testing the association between cwt EEG and mean ERN
+# testing the association between cwt EEG and mean ERN
 
 #### Analysis details
 
-Monte-Carlo permutation testing (5000 iterations) based on Pearson correlations.
-
-Correlations computed between mean ERN and each time-frequency "pixel" across participants, separately per session-block.
+Monte-Carlo permutation testing based on Pearson correlations. Correlations were computed between mean ERN and each time-frequency "pixel" across participants, separately per session-block.
 
 --
 
-Family-wise error rate (multiple-testing inflation of false discoveries) not contained for now because this is very exploratory. At a later point, cluster correction can be applied.
+Monte-Carlo iterations (5000) conducted at the pixel level to obtain empirical uncorrected p values. The analyses will only highlight p < 0.05 results.
 
 --
 
-Some participants don't have data for a certain session-block combination. They are excluded from the analysis on that session-block combination only. -->
+Some participants don't have data for a certain session-block combination. They are excluded from the analysis on that session-block combination only.
+
+--
+
+Multiple-testing inflation of false discoveries not controlled for now. At a later point, cluster correction can be applied. Therefore, the current analyses can show many significant time-frequency results which would be washed out by multiple-testing correction. This exercise is purely _exploratory_ for now.
 
 ---
 
+# mean ERN : [-500, 500] ms power (session 1a)
 
+---
 
+# mean ERN : [-3000, 3000] ms power (session 1a)
+
+---
+
+# mean ERN : [-3000, 3000] ms evoked power (session 1a)
