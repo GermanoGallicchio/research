@@ -1,5 +1,4 @@
 class: center, middle
-name: intro
 
 ## SPREO explorations
 
@@ -17,7 +16,15 @@ On a Windows device:
 - total power, referred to as just "**power**", computed at the trial level, then averaged across trials separately per session.
 - evoked power, referred to as **evoked power** (!) computed on the ensemble-average time-domain (i.e., on the ERP waveform)
 
+--
+
 All power values extracted as the magnitude squared of the complex-valued coefficients obtained through cwt (continuous wavelet transform) using Morse wavelets with parameters gamma = 3 and beta = 20
+
+---
+
+class: center, middle
+
+## statistical descriptives (mean values)
 
 ---
 
@@ -27,14 +34,13 @@ All power values extracted as the magnitude squared of the complex-valued coeffi
 <img src="SPREO_assets/power_20_B_incorrect_perSessBlock_500.jpg" width=100%>
 ]
 
---
 
 .right-column-33[
-On a qualitative level, two visual patterns:
+On a descriptive level, two patterns:
 - near-alpha activity before the response
 - theta-delta activity around the response 
 
-Objective: understand these patterns' association with error (e.g., error processing, impaired activity leading to making an error).
+These patterns appear either before or during an error. But how specific to error making are they?
 
 ]
 
@@ -72,11 +78,19 @@ Possible interpretation: the theta-delta pattern is phase locked to the error, w
 
 ---
 
+class: center, middle
+
+## statistical inference
+
+---
+
 # testing the association between cwt EEG and mean ERN
 
 #### Analysis details
 
-Permutation testing based on Pearson correlation between mean ERN and each time-frequency "pixel" across participants, separately per session.
+Monte-Carlo permutation testing (5000 iterations) based on Pearson correlations.
+
+Correlations computed between mean ERN and each time-frequency "pixel" across participants, separately per session-block.
 
 --
 
