@@ -30,7 +30,7 @@ All power values extracted as the magnitude squared of the complex-valued coeffi
 --
 
 .right-column-33[
-On a qualitative level, two visual trends:
+On a qualitative level, two visual patterns:
 - near-alpha activity before the response
 - theta-delta activity around the response 
 
@@ -59,5 +59,31 @@ Perhaps, the near-alpha activity occurs after any stimulus. Perhaps it appears b
 ---
 
 # [-3000, 3000] ms evoked power around response (0 ms = incorrect response)
+
+.left-column-66[
+<img src="SPREO_assets/power_evoked_20_B_incorrect_perSessBlock.jpg" width=100%>
+]
+
+.right-column-33[
+Evoked-power shows the two patterns, but near-alpha activity is now much less evident relative to the theta-delta activity.
+
+Possible interpretation: the theta-delta pattern is phase locked to the error, whereas the near-alpha pattern is not
+]
+
+---
+
+# testing the association between cwt EEG and mean ERN
+
+#### Analysis details
+
+Permutation testing based on Pearson correlation between mean ERN and each time-frequency "pixel" across participants, separately per session.
+
+--
+
+Multiple comparison addressed through cluster correction.
+
+--
+
+Some participants don't have data for a certain session-block combination. They are excluded from the analysis on that session-block combination only.
 
 
