@@ -3,13 +3,13 @@
   background-color: #eceff4;
   color: #3b4252;
   line-height: 1em;
-  box-sizing: border-box;
+  /*box-sizing: border-box;*/
   height: 100vh;
   font-size: 2em;
   overflow: visible !important;
   min-height: 60vh;
+  padding: 1em;
 }
-
 
 
 /* level one header */
@@ -18,6 +18,12 @@
   font-weight: normal;
   color: #4c566a;
   margin-bottom: 0.8em; /* spacing below */
+  position: absolute;
+  top: 0;
+  left: 0; /* Ensure it starts from the very left */
+    width: 100%;
+  padding: 0em 0.5em;
+  z-index: 1000;
 }
 
 /* level two header */
@@ -89,7 +95,7 @@ th {
 /* LAYOUT CLASSES */
 
 /* Two-column layouts */
-.left-column  { width: 49%; float: left; }
+.left-column  { width: 49%; float: left}
 .right-column { width: 49%; float: right; }
 
 .left-column-33  { width: 33%; float: left; }
@@ -98,8 +104,11 @@ th {
 .left-column-66  { width: 66%; float: left; }
 .right-column-33 { width: 33%; float: right; }
 
-.right-column ~ p { clear: both; }
-.right-column ~ ul { clear: both; }
+.right-column ~ * { clear: both; }
+
+.right-column-33 ~ * { clear: both; }
+
+.right-column-66 ~ * { clear: both; }
 
 
 /* Four-quadrant layouts */
@@ -130,3 +139,16 @@ th {
 }
 
 
+.header {
+  position: absolute;
+  top: 0;
+  left: 0; /* Ensure it starts from the very left */
+  width: 100%;
+  padding: 0.5em 1em;
+  z-index: 1000;
+
+  font-size: 0.7em;
+  font-weight: normal;
+  color: #4c566a;
+  margin-bottom: 0.8em; /* spacing below */
+}
