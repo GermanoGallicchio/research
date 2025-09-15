@@ -18,7 +18,7 @@ On a Windows device:
 
 --
 
-All power values extracted as the magnitude squared of the complex-valued coefficients obtained through cwt (continuous wavelet transform) using Morse wavelets with parameters gamma = 3 and beta = 20
+All power values extracted as the magnitude squared of the complex-valued coefficients obtained through cwt (continuous wavelet transform) using Morse wavelets with parameters gamma = 3 and beta = 20. These parameters favor frequency precision over temporal precision.
 
 ---
 
@@ -73,7 +73,7 @@ Perhaps, the near-alpha activity occurs after any stimulus. Perhaps it appears b
 .right-column-33[
 Evoked-power shows the two patterns, but near-alpha activity is now much less evident relative to the theta-delta activity.
 
-Possible interpretation: the theta-delta pattern is phase locked to the error, whereas the near-alpha pattern is not
+Possible interpretation: the theta-delta pattern is phase locked to the error, whereas the near-alpha pattern is not. Not unexpected.
 ]
 
 ---
@@ -88,15 +88,17 @@ class: center, middle
 
 #### Analysis details
 
-Monte-Carlo permutation testing based on Pearson correlations. Correlations were computed between mean ERN and each time-frequency "pixel" across participants, separately per session-block.
+Monte-Carlo permutation testing (5000 iterations) based on statistical scores (e.g., correlations, t-test scores depending on the analysis) to obtain an empirical p-value at each time-frequency point (or "pixel" like most people like to call it when considering a time-frequency matrix). Binary approach: significant (p < 0.05) or not.
 
 --
 
-Monte-Carlo iterations (5000) conducted at the pixel level to obtain empirical uncorrected p values. The analyses will only highlight p < 0.05 results.
+Analysis set 1. Pearson correlations between mean ERN and each time-frequency point (or "pixel") across participants, separately per session-block.
+
+Analysis set 2. Paired-sample t-test at each time-frequency point (or "pixel") comparing incorrect vs correct trials
 
 --
 
-Some participants don't have data for a certain session-block combination. They are excluded from the analysis on that session-block combination only.
+Some participants don't have data for a certain session-block combination (did not make enough errors in that session-block). So, they are excluded from the analysis on that session-block combination only.
 
 --
 
@@ -112,4 +114,4 @@ Multiple-testing inflation of false discoveries not controlled for now. At a lat
 
 ---
 
-# mean ERN : [-3000, 3000] ms evoked power (session 1a)
+# mean ERN : [-3000, 3000] ms evoked power (session 1a) 
