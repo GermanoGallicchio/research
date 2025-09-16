@@ -20,6 +20,10 @@ On a Windows device:
 
 All power values extracted as the magnitude squared of the complex-valued coefficients obtained through cwt (continuous wavelet transform) using Morse wavelets with parameters gamma = 3 and beta = 20. These parameters favor frequency precision over temporal precision.
 
+.footnote[
+I reduced the temporal resolution _after_ cwt to either 50 Hz (equivalent to averaging values within in 50 bins per second, when analyzing the [-500 500] ms window) or 20 Hz (20 bins, when analyzing the [-3000 3000] ms window). This is common practice and still represents greater temporal resolution than long 400-ms 
+]
+
 ---
 
 class: center, middle
@@ -86,8 +90,6 @@ class: center, middle
 
 # testing the association between cwt EEG and mean ERN
 
-#### Analysis details
-
 Monte-Carlo permutation testing (5000 iterations) based on statistical scores (e.g., correlations, t-test scores depending on the analysis) to obtain an empirical p-value at each time-frequency point (or "pixel" like most people like to call it when considering a time-frequency matrix). Binary approach: significant (p < 0.05) or not.
 
 --
@@ -108,10 +110,31 @@ Multiple-testing inflation of false discoveries not controlled for now. At a lat
 
 # mean ERN : [-500, 500] ms power (session 1a)
 
+.left-column-66[
+<img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter_500.jpg" width=80%>
+]
+
+.right-column-33[
+
+A negative correlation indicates that a _more negative_ ERN (i.e., greater ERN mean amplitude) is associated with greater power in that specific time-frequency point.
+
+Interpretation: ...
+]
+
 ---
 
 # mean ERN : [-3000, 3000] ms power (session 1a)
 
+.left-column-66[
+<img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter.jpg" width=80%>
+]
+
+.right-column-33[
+
+Interpretation: ...
+]
+
+
 ---
 
-# mean ERN : [-3000, 3000] ms evoked power (session 1a) 
+# t-tests
