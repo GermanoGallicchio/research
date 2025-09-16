@@ -20,16 +20,25 @@ On a Windows device:
 
 All power values extracted as the magnitude squared of the complex-valued coefficients obtained through cwt (continuous wavelet transform) using Morse wavelets with parameters gamma = 3 and beta = 20. These parameters favor frequency precision over temporal precision.
 
+--
+
 .footnote[
-I reduced the temporal resolution _after_ cwt to either 50 Hz (equivalent to averaging values within in 50 bins per second, when analyzing the [-500 500] ms window) or 20 Hz (20 bins, when analyzing the [-3000 3000] ms window). This is common practice and still represents greater temporal resolution than long 400-ms 
+I reduced the temporal resolution _after_ cwt to either 50 Hz (equivalent to averaging values within in 50 bins per second, when analyzing the [-500 500] ms window) or 20 Hz (20 bins, when analyzing the [-3000 3000] ms window). This is common practice and still represents greater temporal resolution than long 400-ms.
 ]
 
 ---
 
 class: center, middle
 
-## statistical descriptives (mean values)
+## statistical descriptives
 
+<img src="https://kroki.io/mermaid/svg/eNpLL0osyFDwCeJScNQoycxN1U3Jz03MzNPhUlBQKCnKTMxRyEktS83R5FJw0kjNK07NTcpJVUgsSy1KTE8FCoZrJJeXAGlnjYL88tQiICsguiS_BKgNzI_lApqroKtrpxAOJp3BpBOYDOCCAAAy0yPD" width=80%>
+
+<img src="https://kroki.io/mermaid/svg/eNoliLEKwyAYBvf_Kb7RQH2FQhLcOpQsGUoH03ykUo3Binn9ir3hDm5L9njjNgnQq-wC9RqDdfulDuTkrIdnoe8Eg-L-ZVg8YQuT3VjnqMx0r53V68y15sESP1xxxJPpKYIeWl8xNI_Nc7ORPz_y3iLh" width=80%>
+
+.footnote[
+ensemble average = mean across trials    
+]
 ---
 
 # [-500, 500] ms power around response (0 ms = incorrect response)
@@ -108,7 +117,14 @@ Multiple-testing inflation of false discoveries not controlled for now. At a lat
 
 ---
 
-# mean ERN : [-500, 500] ms power (session 1a)
+class: center, middle
+
+## statistical inference
+### Analysis set 1
+
+---
+
+# mean ERN : [-500, 500] ms power (session-block 1a)
 
 .left-column-66[
 <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter_500.jpg" width=80%>
@@ -116,25 +132,38 @@ Multiple-testing inflation of false discoveries not controlled for now. At a lat
 
 .right-column-33[
 
-A negative correlation indicates that a _more negative_ ERN (i.e., greater ERN mean amplitude) is associated with greater power in that specific time-frequency point.
+A negative correlation indicates that a _more negative_ ERN (i.e., larger ERN mean amplitude) is associated with greater power in that specific time-frequency point.
 
-Interpretation: ...
+Subjects with greater theta-delta activity and near-alpha activity(and beyond) have a larger ERN.
 ]
 
 ---
 
-# mean ERN : [-3000, 3000] ms power (session 1a)
+# mean ERN : [-3000, 3000] ms power (session-block 1a)
 
 .left-column-66[
 <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter.jpg" width=80%>
 ]
 
 .right-column-33[
+With an intertrial interval of ca. 1.5 s (more or less?), the near-alpha effect stretches not only into trials _before_ the error but even into those _after_ the error. 
 
-Interpretation: ...
+.small-text[
+(Speculation alert) What does it mean? 
+The near-alpha pattern is unlikely to be specific to error-making. It could reflect the mobilization of resources towards the processing of the stimulus. The negative association effect could indicate that individuals with greater near-alpha power, allocate more resources to the task, and therefore _when they make an error_, their ERN is larger.
+]
 ]
 
+---
+
+class: center, middle
+
+## statistical inference
+### Analysis set 2
 
 ---
 
 # t-tests
+
+
+to be continued...
