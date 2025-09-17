@@ -113,7 +113,7 @@ Some participants don't have data for a certain session-block combination (did n
 
 --
 
-Multiple-testing inflation of false discoveries not controlled for now. At a later point, cluster correction can be applied. Therefore, the current analyses can show many significant time-frequency results which would be washed out by multiple-testing correction. This exercise is purely _exploratory_ for now.
+Multiple-testing inflation of false discoveries not controlled for now. At a later point, cluster correction can be applied. Therefore, the current analyses _can show many significant time-frequency results which would be washed out by multiple-testing correction_. This exercise is purely _exploratory_ for now.
 
 ---
 
@@ -163,7 +163,73 @@ class: center, middle
 
 ---
 
-# t-tests
+# Trial selection
 
+<div align="center">
+    <img src="https://kroki.io/mermaid/svg/eNpLL0osyFAIceFSUHCMLinKTMxRKKksSI0F8p00MvOS84uKUpNLNIFcZw0oJygvBcR3gfEDiso0uUD6FXR17RSc4CxnOAtkOgCFCBv1" width="40%">
+</div>
+
+
+Two approaches to correct trial selection.
+
+--
+
+**'correctRnd'**. Correct trials **chosen randomly** with the contrain of being in the same number of incorrect trials, per session-block.
+
+--
+
+**'correctPrv'**. For each incorrect trial, take the **trial before**. But identify instances where:
+- the previous trial was also incorrect (i.e., a train of multiple incorrect trials) 
+- the first trial of the session-block was incorrect (so no previous trial)
+
+Remove those (vey rare) instances, and replace them with randomly chosen correct trials belonging to the same session-block
+
+---
+
+# t-tests [-3000, 3000] ms power (session-block 1a), incorrect vs correctRnd
+
+.left-column-66[
+<img src="SPREO_assets/analysis2_permutationH0testing_power_1a_incorrectVScorrectRnd_20_B_5000Iter.jpg" width=80%>
+]
+
+.right-column-33[
+Interpretation: the peri-error theta-delta activity is larger for incorrect trials than correct (random approach).
+
+The effect includes the theta-delta range (and it's probably maximal at theta) but it's not limited to these frequencies.
+
+There is some other stuff that might be interesting, or might just be "false discovery"
+
+]
+
+---
+
+# t-tests [-3000, 3000] ms power (session-block 1a), incorrect vs correctPrv
+
+.left-column-66[
+<img src="SPREO_assets/analysis2_permutationH0testing_power_1a_incorrectVScorrectPrv_20_B_5000Iter.jpg" width=80%>
+]
+
+.right-column-33[
+interpretation: same when comparing incorrect vs correctPrv.
+
+Probably this is a better approach because, by using neighboring trials, it minimizes differences in temporary attentional drifts
+
+]
+
+---
+
+# t-tests [-3000, 3000] ms power (session-block 1a), correctRnd vs correctPrv
+
+.left-column-66[
+<img src="SPREO_assets/analysis2_permutationH0testing_power_1a_correctRndVScorrectPrv_20_B_5000Iter.jpg" width=80%>
+]
+
+.right-column-33[
+Interpretation: unsure. No major difference at the time of committing an error.
+]
+
+---
+
+only session-block 1a for now
 
 to be continued...
