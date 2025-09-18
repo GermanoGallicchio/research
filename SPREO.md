@@ -28,6 +28,16 @@ I reduced the temporal resolution _after_ cwt to either 50 Hz (equivalent to ave
 
 ---
 
+# Total power
+
+A continuous wavelet transform (cwt) was applied to the long epoch (i.e., [-3, 3] s) time-domain signal on individual trials using jLab (v. 1.7.3, REFERENCE). The transform used 60 Morse wavelets (gamma = 3, beta = 20, bandpass scaling; Lilly & Olhede, 2008; Olhede & Walden, 2002) with central frequencies linearly spaced from 1 to 60 Hz.
+
+Power was computed as the squared modulus of each complex-valued wavelet coefficient in units of µV^2, then averaged across trials, separately per session-block.
+
+(For Henrico's analyses only) Power was then averaged across all session-blocks for which we had data (few participants had all 4 session-blocks) and then further averaged in time-frequency ROIs
+
+---
+
 class: center, middle
 
 ## statistical descriptives
@@ -41,7 +51,7 @@ ensemble average = mean across trials
 ]
 ---
 
-# [-500, 500] ms power around response (0 ms = incorrect response)
+# [-600, 425] ms power around response (0 ms = incorrect response)
 
 .left-column-66[
 <img src="SPREO_assets/power_20_B_incorrect_perSessBlock_500.jpg" width=100%>
@@ -124,7 +134,7 @@ class: center, middle
 
 ---
 
-# mean ERN : [-500, 500] ms power (session-block 1a)
+# mean ERN : [-600, 425] ms power (session-block 1a)
 
 .left-column-66[
 <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter_500.jpg" width=80%>
@@ -139,7 +149,7 @@ Subjects with greater theta-delta activity and near-alpha activity(and beyond) h
 
 ---
 
-# mean ERN : [-3000, 3000] ms power (session-block 1a)
+# mean ERN amplitude : [-3000, 3000] ms power (session-block 1a)
 
 .left-column-66[
 <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter.jpg" width=80%>
@@ -156,33 +166,138 @@ The near-alpha pattern is unlikely to be specific to error-making. It could refl
 
 ---
 
+Is this association _stable_ across session-blocks? 
+
+--
+Short answer: **no**.
+
+The next slide will show how this association becomes more and more localized to just peri-error delta-theta.
+
+---
+
+# mean ERN amplitude : [-3000, 3000] ms power (all sessions)
+
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1a_20_B_5000Iter.jpg" width=60%>    
+    </div>
+
+]
+
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_1b_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_2a_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis1_permutationH0testing_power_ernm_2b_20_B_5000Iter.jpg" width=60%>
+    </div>
+]
+
+
+---
+
+# mean Pe amplitude : [-3000, 3000] ms power (all sessions)
+
+not yet done
+
+---
+
+# Three approaches to correct trial selection.
+
+<div align="center">
+    <img src="https://kroki.io/mermaid/svg/eNpLL0osyFAIceFSUHCMLinKTMxRKKksSI0F8p00MvOS84uKUpNLNIFcZw0oJygvBcR3gfEDispAfFc4vxis3lFBV9dOwQnOcoazXOAsVwCPHyJS" width="40%">
+</div>
+
+
+--
+
+.small-text[
+**'correctRnd'**. Correct trials **chosen randomly** with the contrain of being in the same number of incorrect trials, per session-block.
+]
+
+--
+
+.left-column[
+.small-text[
+**'correctPrv'**. For each incorrect trial, take the **trial before**. But identify instances where (1) the previous trial was also incorrect (i.e., a train of multiple incorrect trials) or (2) the first trial of the session-block was incorrect (so no previous trial)<br>
+...and remove those instances, and replace them with randomly chosen correct trials belonging to the same session-block and **(18 Sep addition)** not occurring after an error
+]
+]
+
+--
+
+.right-column[
+.small-text[
+**'correctPst'**. For each incorrect trial, take the **trial after**. But identify instances where (1) the following trial was also incorrect (i.e., a train of multiple incorrect trials) or (2) the last trial of the session-block was incorrect (so no previous trial)<br>
+...and remove those instances, and replace them with randomly chosen correct trials belonging to the same session-block and not occurring before an error
+]
+]
+
+--
+
+.footnote[
+alternating incorrect trials mess up the Prv vs Pst split (e.g., C C I C I C C) where a correct trial is _both before and after_ an incorrect trial. Currently this type of correct trials are in both Prv and Pst.
+]
+
+---
+
+# Example of trial classification for each session-block
+
+<img src="SPREO_assets/F052_2a.jpg" width=100%>
+
+.small-text[
+The horizontal axis shows trials within a session-block, 2a in this example.
+
+The vertical axis shows types of trials. Incorrect trials are shown with a purple cross. Above and below are correct trials that, respectively, followed and preceded an incorrect trial.
+
+Notice how a correct trial can _both precede and follow_ an incorrect trials. Making the previous vs following split less clear-cut than ideal. 
+]
+
+---
+
+# [-3000, 3000] ms power around response (0 ms = response)
+
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/power_20_B_incorrect_perSessBlock.jpg" width=70%>    
+    </div>
+
+]
+
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/power_20_B_correctRnd_perSessBlock.jpg" width=70%>    
+    </div>
+]
+
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/power_20_B_correctPrv_perSessBlock.jpg" width=70%>    
+    </div>
+]
+
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/power_20_B_correctPst_perSessBlock.jpg" width=70%>
+    </div>
+]
+
+
+---
+
 class: center, middle
 
 ## statistical inference
 ### Analysis set 2
-
----
-
-# Trial selection
-
-<div align="center">
-    <img src="https://kroki.io/mermaid/svg/eNpLL0osyFAIceFSUHCMLinKTMxRKKksSI0F8p00MvOS84uKUpNLNIFcZw0oJygvBcR3gfEDiso0uUD6FXR17RSc4CxnOAtkOgCFCBv1" width="40%">
-</div>
-
-
-Two approaches to correct trial selection.
-
---
-
-**'correctRnd'**. Correct trials **chosen randomly** with the contrain of being in the same number of incorrect trials, per session-block.
-
---
-
-**'correctPrv'**. For each incorrect trial, take the **trial before**. But identify instances where:
-- the previous trial was also incorrect (i.e., a train of multiple incorrect trials) 
-- the first trial of the session-block was incorrect (so no previous trial)
-
-Remove those (vey rare) instances, and replace them with randomly chosen correct trials belonging to the same session-block
 
 ---
 
@@ -193,43 +308,204 @@ Remove those (vey rare) instances, and replace them with randomly chosen correct
 ]
 
 .right-column-33[
-Interpretation: the peri-error theta-delta activity is larger for incorrect trials than correct (random approach).
+Interpretation: the peri-error theta-delta activity is larger for incorrect trials than correct (correctRnd).
 
 The effect includes the theta-delta range (and it's probably maximal at theta) but it's not limited to these frequencies.
 
-There is some other stuff that might be interesting, or might just be "false discovery"
+There is some other stuff that might be interesting, or might just be "false discovery".
+
+.small-text[
+Let's compare these effects across sessions (next slide). The peri-error theta-delta activity is a constant, so is a beta-ish effect.
+]
 
 ]
 
 ---
 
-# t-tests [-3000, 3000] ms power (session-block 1a), incorrect vs correctPrv
+# t-tests [-3000, 3000] ms power (all session-blocks), incorrect vs correctRnd
 
-.left-column-66[
-<img src="SPREO_assets/analysis2_permutationH0testing_power_1a_incorrectVScorrectPrv_20_B_5000Iter.jpg" width=80%>
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1a_incorrectVScorrectRnd_20_B_5000Iter.jpg" width=60%>    
+    </div>
 ]
 
-.right-column-33[
-interpretation: same when comparing incorrect vs correctPrv.
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1b_incorrectVScorrectRnd_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
 
-Probably this is a better approach because, by using neighboring trials, it minimizes differences in temporary attentional drifts
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2a_incorrectVScorrectRnd_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
 
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2b_incorrectVScorrectRnd_20_B_5000Iter.jpg" width=60%>
+    </div>
 ]
 
 ---
 
-# t-tests [-3000, 3000] ms power (session-block 1a), correctRnd vs correctPrv
+# t-tests [-3000, 3000] ms power (all session-blocks), incorrect vs correctPrv
 
-.left-column-66[
-<img src="SPREO_assets/analysis2_permutationH0testing_power_1a_correctRndVScorrectPrv_20_B_5000Iter.jpg" width=80%>
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1a_incorrectVScorrectPrv_20_B_5000Iter.jpg" width=60%>    
+    </div>
 ]
 
-.right-column-33[
-Interpretation: unsure. No major difference at the time of committing an error.
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1b_incorrectVScorrectPrv_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2a_incorrectVScorrectPrv_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2b_incorrectVScorrectPrv_20_B_5000Iter.jpg" width=60%>
+    </div>
 ]
 
 ---
 
-only session-block 1a for now
 
-to be continued...
+In the previous slide, something happens about 1.5 seconds... 
+Should we get excited about the blue blob that follows the red one? 
+
+--
+In my opinion, no. 
+
+--
+
+Reason.: This analysis compares epochs locked to an error with epochs locked to correctPrv, that is correct responses _before_ an error (i.e., an error will be made ca 1.5 s later).
+
+The epochs locked to errors show greater peri-error delta-theta (red blob). 
+
+The epochs not locked to errors will have an error ca. 1.5 s later (blue blob). The blue blob is the transposed version of the red blob, that's all.
+
+--
+
+In other words, both "incorrect" and "correctPrv" epochs include an error, either a 0 s or ca. 1.5 s.
+
+--
+
+Additional evidence for this interpretation in the next slide: the blue blob sorts of appears at -1.5 s when comparing epochs locked to an error with epochs locked to correct responses _after_ an error (i.e., an error was be made ca 1.5 s before).
+
+---
+
+# t-tests [-3000, 3000] ms power (all session-blocks), incorrect vs correctPst
+
+
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1a_incorrectVScorrectPst_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1b_incorrectVScorrectPst_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2a_incorrectVScorrectPst_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2b_incorrectVScorrectPst_20_B_5000Iter.jpg" width=60%>
+    </div>
+]
+
+---
+
+# t-tests [-3000, 3000] ms power (all session-blocks), correctPst vs correctPrv
+
+
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1a_correctPstVScorrectPrv_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1b_correctPstVScorrectPrv_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2a_correctPstVScorrectPrv_20_B_5000Iter.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2b_correctPstVScorrectPrv_20_B_5000Iter.jpg" width=60%>
+    </div>
+]
+
+---
+
+When comparing epochs locked to correct responses _after_ an error (i.e., an error will be made ca 1.5 s before) with epochs locked to correct responses _before_ an error (i.e., an error will be made ca 1.5 s later), the same two transposed blobs appear at once, at -1.5 s and +1.5 s.
+
+--
+
+We need to zoom in to see something more meaningful (next slide). But keep in mind, the current cwt parameter (beta = 20) is not great for temporal precision especially in the lower frequencies.
+
+--
+
+Long story short: post-error trials show lower alpha mainly before the response (or equivalently after the stimulus). You can notice it in the previous slide too.
+
+--
+
+A previous study showing the same alpha decrease in golf putting after missing a putt http://doi.org/10.1111/psyp.12414
+1. Generally, people put in more resources in trials following an error
+2. Generally, greater alpha power indicates release from neuronal inhibition
+
+
+
+---
+
+# t-tests [-3000, 3000] ms power (all session-blocks), correctPst vs correctPrv
+
+
+.quadrant-2[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1a_correctPstVScorrectPrv_20_B_5000Iter_600.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-1[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_1b_correctPstVScorrectPrv_20_B_5000Iter_600.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-3[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2a_correctPstVScorrectPrv_20_B_5000Iter_600.jpg" width=60%>    
+    </div>
+]
+
+.quadrant-4[
+    <div align="center" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <img src="SPREO_assets/analysis2_permutationH0testing_power_2b_correctPstVScorrectPrv_20_B_5000Iter_600.jpg" width=60%>
+    </div>
+]
+
+
