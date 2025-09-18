@@ -30,7 +30,7 @@ I reduced the temporal resolution _after_ cwt to either 50 Hz (equivalent to ave
 
 # Total power
 
-A continuous wavelet transform (cwt) was applied to the long epoch (i.e., [-3, 3] s) time-domain signal on individual trials using jLab (v. 1.7.3, REFERENCE). The transform used 60 Morse wavelets (gamma = 3, beta = 20, bandpass scaling; Lilly & Olhede, 2008; Olhede & Walden, 2002) with central frequencies linearly spaced from 1 to 60 Hz.
+A continuous wavelet transform (cwt) was applied to the long epoch (i.e., [-3, 3] s) time-domain signal on individual trials using jLab (v. 1.7.3, https://github.com/jonathanlilly/jLab). The transform used 60 Morse wavelets (gamma = 3, beta = 20, bandpass scaling; Lilly & Olhede, 2008; Olhede & Walden, 2002) with central frequencies linearly spaced from 1 to 60 Hz.
 
 Power was computed as the squared modulus of each complex-valued wavelet coefficient in units of µV^2, then averaged across trials, separately per session-block.
 
