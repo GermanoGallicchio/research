@@ -78,13 +78,13 @@ th {
 
 /* Footnote style */
 .footnote {
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: #5e81ac;
   line-height: 1em;
   margin-top: 0em;
   position: absolute;
   bottom: 0;
-  width: 70%;
+  width: 80%;
   text-align: left;
   border-top: 1px solid #5e81ac; /* Thin horizontal line */
   padding-top: 0em; /* Space between the line and text */
