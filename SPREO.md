@@ -475,7 +475,7 @@ Long story short: post-error trials show lower alpha mainly before the response 
 
 A previous study showing the same alpha decrease in golf putting after missing a putt http://doi.org/10.1111/psyp.12414
 1. Generally, people put in more resources in trials following an error
-2. Generally, greater alpha power indicates release from neuronal inhibition
+2. Generally, lower alpha power indicates release from neuronal inhibition (more resources)
 
 
 
