@@ -461,7 +461,7 @@ Additional evidence for this interpretation in the next slide: the blue blob sor
 
 ---
 
-When comparing epochs locked to correct responses _after_ an error (i.e., an error will be made ca 1.5 s before) with epochs locked to correct responses _before_ an error (i.e., an error will be made ca 1.5 s later), the same two transposed blobs appear at once, at -1.5 s and +1.5 s.
+In the previous slide, you can see that when comparing epochs locked to correct responses _after_ an error (i.e., an error will be made ca 1.5 s before) with epochs locked to correct responses _before_ an error (i.e., an error will be made ca 1.5 s later), the same two transposed blobs appear at once, at -1.5 s and +1.5 s.
 
 --
 
@@ -473,7 +473,7 @@ Long story short: post-error trials show lower alpha mainly before the response 
 
 --
 
-A previous study showing the same alpha decrease in golf putting after missing a putt http://doi.org/10.1111/psyp.12414
+A study showing a similar alpha power decrease after missing a golf putt (a motor error) http://doi.org/10.1111/psyp.12414
 1. Generally, people put in more resources in trials following an error
 2. Generally, lower alpha power indicates release from neuronal inhibition (more resources)
 
